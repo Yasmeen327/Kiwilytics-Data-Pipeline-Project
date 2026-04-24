@@ -39,7 +39,7 @@ def fetch_order_data():
 def process_daily_revenue():
     df = pd.read_csv('/home/kiwilytics/airflow_output/daily_sales_data.csv')
 
-    df['total_revenue'] = df['quantity'] * df['price']
+    df['total_revenue'] = df['Quantity'] * df['Price']
 
     revenue_per_day = df.groupby('sale_date').agg(
         total_revenue=('total_revenue', 'sum')
